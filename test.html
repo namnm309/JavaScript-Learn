@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>What Can JavaScript Do?</h2>
+
+    <p>JavaScript can change HTML attribute values.</p>
+
+    <p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+    <!--Nhúng JavaScript làm thuộc tính trong tag -->
+    <!--Địa chỉ web , dấu // thay = &#47-->
+    <button 
+        onclick="document.getElementById('myImage').src='https:&#47&#47tapchi.toyota.com.vn/uploads/images/cac-dong-xe-toyota-16.png'">
+        Toyota
+    </button>
+
+
+    <img id="myImage" src="pic_bulboff.gif" style="width:100px">
+
+    <button
+        onclick="document.getElementById('myImage').src='https:&#47&#47giaxemercedes.vn/wp-content/uploads/2021/09/mercedes-e200-exclusive-2021-2022-den-giaxemercedes-vn.jpg'">
+        Mercedes
+    </button>
+    <script>
+
+    </script>
+</body>
+
+</html>

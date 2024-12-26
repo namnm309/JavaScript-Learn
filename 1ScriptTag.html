@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        SriptTag
+
+    </title>
+</head>
+
+<body>
+    <!--Có 2 cách triển khai JavaScript-->
+    <!--Java Script được đặt trong attribute của thẻ html -->
+    <!--Nằm trong thẻ <script></script?-->
+
+    <!--trong attribute của thẻ html-->
+    <p id="p1">Bạn chưa bấm button !</p>
+    <button type="button" onclick='document.getElementById("p1").innerHTML="Bạn đã bấm nút button!!!"'>
+        Bấm vào để thay đổi đoạn text
+    </button>
+
+    <br><br>
+    <h1>=========</h1>
+    <!--thay đổi giá trị của tag html-->
+    <button onclick="document.getElementById('im1').src='./image/1.png'">Mercedes</button>
+
+    <img id="im1" src="./image/1.png" alt="mercedes-e200-exclusive-2021-2022-den-giaxemercedes-vn" style="width: 100px">
+
+    <button onclick="document.getElementById('im1').src='./image/2.png'">Toyota</button>
+
+    <!--Thay đổi CSS-->
+
+    <br>
+    <br>
+    <h1>===========</h1>
+    <p id="p2">Văn bản sẽ được thay đổi</p>
+
+    <button onclick="document.getElementById('p2').style.fontSize='35px'">Bấm vào để tăng kích thước text</button>
+
+    <button onclick="document.getElementById('p2').style.fontSize='5px'">Bấm vào để giảm kích thước text</button>
+
+    <button onclick="document.getElementById('p2').style.fontSize='16px'">Bấm vào để trở lại kích thước ban đầu</button>
+
+    <!--Ẩn phần tử html -->
+
+    <br>
+    <br>
+    <h1>===========</h1>
+    <p id="p3">Đoạn văn bản này có thể ẩn và hiện lại</p>
+
+    <button onclick="document.getElementById('p3').style.display='none'">Bấm vào đây để ẩn đoạn text trên</button>
+
+    <button onclick="document.getElementById('p3').style.display='block'">Bấm vào đây để hiện lại đoạn text
+        trên</button>
+
+    <br>
+    <br>
+    <h1>============</h1>
+
+    <p>Trong java script mã được chèn vào trong thẻ "&lt;script&gt;&lt;/script&gt;"</p>
+
+    <script>
+        function thayDoiText() {
+            document.getElementById("p4").innerHTML = "Đã thay đổi văn bản bởi function thayDoiText"
+        }
+    </script>
+
+    <p id="p4">Văn bản test function</p>
+
+    <button type="button" onclick="thayDoiText()">Bấm vào</button>
+    <button type="button" onclick="document.getElementById('p4').innerHTML='Văn bản test function'">Quay lại</button>
+    <!--Ngoài ra function có thể nằm ở ngoài 1 tệp js ngoài-->
+
+    <p id="p5">Văn bản test function ngoài</p>
+    <script src="functiontest.js"></script>
+    <button type="button" onclick="functionNgoai()">Bấm vào để sử dụng function ngoài</button>
+    <button type="button" onclick="document.getElementById('p5').innerHTML='Văn bản test function ngoài'">Quay
+        lại</button>
+
+    <br><br>
+    <h1>============================================================</h1>
+
+    <!--InnerHTML-->
+    <!--Ngoài ra inner còn đc dùng để viết vào html-->
+    <p id="p6"></p>
+    <script>
+        document.getElementById("p6").innerHTML = "Đây là văn bản tự viết trong script";
+    </script>
+
+    <br><br>
+    <h1>=======Thông báo web===========</h1>
+    <br>
+    <!--document.write()-->
+    <!--Chỉ dùng for test-->
+    <!--Khi khởi chạy document.write() sau các thẻ HTML thì nó sẽ xóa hết tất cả các thẻ HTML-->
+
+    <script>
+        document.write("Khi khởi chạy chung các thẻ html khác thì nó sẽ ko xóa các html khác");
+    </script>
+
+
+    <button type="button"
+        onclick="document.write('Khi khởi động thẻ write này sau thì nó sẽ xóa hết tất cả các thẻ HTML đã loaded')">Bấm
+        vào để thấy sự khác biệt</button>
+
+    <!--window.alert-->
+    <!--Thông báo của trang web-->
+    <script>
+        //window.alert("Đây là thông báo của trang web-line 106");
+        //alert("Không window");
+        //có thể bỏ từ khóa window
+        //Từ khóa window ở đây là biến global
+
+    </script>
+
+    <script>
+        console.log("thông báo lỗi");
+    </script>
+    <br><br>
+    <h1>===================Máy in=====================</h1>
+    <!--Nút máy in-->
+    <!--In trang hiện tại-->
+    <button type="button" onclick="window.print()">Bấm đây để in</button>
+
+    <br><br>
+    <h1>=======Đối tượng(JS Object)======</h1>
+    <p id="car0">[car0] </p><br>
+    <p id="car">[car] </p><br>
+    <p id="car2">[car2] </p><br>
+    <p id="person">[person] </p>
+    <p id="test">[test] </p>
+    <p id="nested">[Nested Object] </p>
+    <script>
+        //Tạo 1 biến thông thường
+        let car0 = "Mercedes";
+        document.getElementById("car0").innerHTML += car0;
+
+        //Object cũng là t biến nhưng chứa được nhiều biến hơn
+        //Tạo object car =  kiểu Object Literal
+        let car = { type: "4 seat", model: "mercedes", price: "500000$" };
+        document.getElementById("car").innerHTML += "Chỗ ngồi :" + car.type + "-Hãng xe : " + car["model"] + "-Giá tiền : " + car["price"];
+
+        //Tạo object = toDán tử new 
+        let car2 = new Object;
+
+        //Thêm 1 thuộc tính ( properties) vào đối tượng(object) car2
+        car2.type = "7 seat";
+        car2.model = "Toyota";
+
+        car.type = "16 seat";
+        // document.getElementById("car").innerHTML=car.type;
+        car.model = "volvo";
+        car.price = "1000000$";
+
+        //Các ví dụ thêm : 
+        const person = {
+            firstName: "Nam",
+            lastname: "Nguyễn",
+            id: "SE182871",
+            fullName: function () {
+                return this.firstName + " " + this.lastname;
+            }
+        }
+        //Xóa thuộc tính
+        delete person.id;
+
+        document.getElementById("person").innerHTML += "<br>" + "Tên : " + person.firstName + "<br>"
+            + "Họ : " + person.lastname + "<br>" +
+            "ID : " + person.id + "<br>" +
+            "Tên Đầy Đủ : " + person.fullName();
+
+        //Có thể thêm , sửa , xóa và chỉ đọc đối với các thuộc tính của JavaScript
+        let modelx = car2.model;
+        modelx = "vãi ò";
+        document.getElementById("test").innerHTML += modelx;
+        document.getElementById("car2").innerHTML += car2.model;
+
+        //Nested Objects 
+        myObj = {
+            name: "John",
+            age: 30,
+            myCars: {
+                car: "Ford",
+                car2: "BMW",
+                car0: "Fiat"
+            }
+        }
+        document.getElementById("nested").innerHTML += myObj.myCars.car;
+
+
+
+    </script>
+    <br><br>
+    <h1>=====JavScriptDisplayObjects========</h1>
+    <p id="loop">[loop] </p>
+    <p id="array">[array-Object.values()] </p>
+    <p id="entries">[Object.entries()] </p>
+    <p id="json">[JSON.stringify()] </p>
+    <script>
+        //Các cách thường xài là truy cập thẳng vào thuộc tính 
+
+        //Dùng loop để display object có nhiều properties 
+        //Tạo object 
+        const mainboardBrand = {
+            name1: "Asus",
+            name2: "MSI",
+            name3: "Gigabyte",
+            name4: "Samsung",
+            name5: "Asrock"
+        }
+
+        //Tạo 1 text để gán các giá trị in vào 
+        let text = "";//khởi tạo biến    
+        for (let x in mainboardBrand) {
+            text += "\n" + mainboardBrand[x] + "\n";//Lưu ý phải dùng [x], nếu x thì vòng lặp sẽ error
+        };
+
+        //In ra 
+        document.getElementById("loop").innerText += text;
+
+        //Tạo mảng để in các thuộc tính sử dụng Object.values
+        //Tạo object 
+        const phone = {
+            phone1: "IPhone",
+            phone2: "Samsung",
+            phone3: "Xiaomi",
+            phone4: "Vivo"
+        }
+
+        //Tạo mảng để gán các properties vào mảng 
+        const myPhone = Object.values(phone);
+
+        //In mảng ra 
+        document.getElementById("array").innerHTML += myPhone;
+
+        //Dùng Object.entries()
+        //Khởi tạo biến 
+        const traicay = { Chuoi: "300", Tao: "200", Cam: "500" };
+
+        //Dùng loop gán giá trị vào 
+        let text1 = "";//đã khai báo text ở trên nếu khai báo nữa sẽ báo lỗi 
+        for (let [traicays, value] of Object.entries(traicay)) {
+            text1 += traicays + ": " + value + "<br>";
+        }
+
+        //In ra 
+        document.getElementById("entries").innerHTML += text1;
+
+        //Dủng JSON.stringify()
+        //Tạo 1 objefct 
+        const cpu = {
+            I3: "12400f",
+            I5: "13500F",
+            I7: "14700f",
+        }
+
+        //sử dụng JSON.stringify() 
+        let myString = JSON.stringify(cpu);
+
+        //In ra 
+        document.getElementById("json").innerHTML += myString;
+
+
+
+
+
+    </script>
+
+    <br><br>
+    <h1>=========JS Object Constructor========</h1>
+    <p id="constructor">[constructor] </p>
+    <p id="df1">[DefaultConstructor1] </p>
+    <p id="df2">[DefaultConstructor2] </p>
+    <p id="themthuoctinhconstructor1">[themthuoctinhconstructor1] </p>
+    <p id="themthuoctinhconstructor2">[themthuoctinhconstructor2] </p>
+    <p id="themmethodvaoobject">[themmethodvaoobject] </p>
+    <p id="themmethodvaoconstructor">[themmethodvaoconstructor] </p>
+
+
+
+    <script>
+        //Đôi lúc ta cần tạo nhiều đối tượng có cũng 1 kiểu dữ liệu hoặc nhiều kiểu dữ liệu tích hợp 
+
+        //Tạo 1 constructor cho animal 
+        function Animal(name, color, age, price) {
+            this.ten = name;
+            this.color = color;
+            this.age = age;
+            this.price = price;
+        }
+
+        //Tạo 1 đối tượng mới có kiểu dữ liệu Animal 
+        const tommy = new Animal("tommy", "orange", "15", "$$");
+
+        //In ra 
+        document.getElementById("constructor").innerHTML += tommy.ten;
+        //Thử dòng này 
+        //document.getElementById("constructor").innerHTML+=tommy.name;
+
+        //Defalut constructor 
+        function Plane(hang, dodai, saicanh, giatien) {
+            this.brand = hang;
+            this.width = dodai;
+            this.wingspan = saicanh;
+            this.price = giatien;
+            this.nation = "VietNam";//Đặt giá trị mặt đinh thêm 
+        }
+
+        function Plane2(hang, dodai, saicanh, giatien, quocgia) {//ko giống như java có thể trung constructor
+            this.brand = hang;
+            this.width = dodai;
+            this.wingspan = saicanh;
+            this.price = giatien;
+            this.nation = quocgia;
+        }
+
+
+        //Tạo 2 đối tượng để thử 
+        const obj1 = new Plane("Boeing", "100", "50", "100$");
+        const displayObj1=Object.values(obj1);
+        const obj2 = new Plane2("LockhhedMartin", "200", "100", "50$", "America");
+        const displayObj2=Object.values(obj2);
+        
+        //In ra để xem
+        document.getElementById("df1").innerHTML +="<br>"+ displayObj1+"<br>"+displayObj2;
+
+        //Nếu muốn bổ sung thuộc tính cho obj1 thì có thể thêm sau
+        obj1.nation="Americaaaaaaaaaaaaaaaaa";
+        let displayObj3=Object.values(obj1);
+        document.getElementById("df2").innerHTML+="<br>"+displayObj3;
+
+        //Thêm thuộc tính cho constructor 
+        //Plane.ThoiLuongBay="5h";//ko thể thêm bằng cách này 
+        document.getElementById("themthuoctinhconstructor1").innerHTML+=displayObj1;
+        //Dùng prototype
+        Plane.prototype.ThoiLuongBay="5h";
+        let displayObj4=Object.values(obj1);//ko thể đọc được => đọc thủ công
+        document.getElementById("themthuoctinhconstructor2").innerHTML+=displayObj4+" "+obj1.ThoiLuongBay;
+
+        //Hàm tạo cũng có thể  thêm phương thức 
+        //Thêm 1 phương thức mới cho đối tượng đc chỉ định 
+        obj1.changeName=function (name){
+            this.brand=name;
+        }
+        //Đổi tên 
+        obj1.changeName("VietnameAirLine");
+
+        document.getElementById("themmethodvaoobject").innerHTML+=obj1.brand;
+
+        //Thêm method vào constructor
+        //Ko dùng cách của thêm method vào object cho constructor đc 
+        //Mà làm như sau , dùng prototype
+        Plane.prototype.changeName=function (name){
+            this.brand=name;
+        }
+
+        obj1.changeName("Prototype");
+
+        document.getElementById("themmethodvaoconstructor").innerHTML+=obj1.brand;
+
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
